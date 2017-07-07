@@ -1,0 +1,10 @@
+alias.pu=!sh -c "git rev-parse --abbrev-ref HEAD | xargs git push -u origin"
+alias.dm=!sh -c "git branch --merged | grep -v \* | grep -v master | xargs git branch -d"
+alias.co=checkout
+alias.br=branch
+alias.ci=commit
+alias.st=status
+alias.sla=log --oneline --decorate --graph --all
+alias.fadd=!sh -c "git add $(git ls-files -dom --exclude-standard | sort -u | fzf -m | xargs)"
+alias.ffco=!sh -c "git checkout $(git ls-files -dom --exclude-standard | sort -u | fzf -m | xargs)"
+alias.dsf=!f() { [ -z "$GIT_PREFIX" ] || cd "$GIT_PREFIX" && git diff --color "$@" | diff-so-fancy  | less --tabs=4 -RFX; }; f
