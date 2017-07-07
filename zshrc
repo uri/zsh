@@ -8,10 +8,12 @@ export ZSH=/Users/uri/.oh-my-zsh
 # Default editor
 export EDITOR=nvim
 
+export GPG_TTY=`tty`
+
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-ZSH_THEME="robbyrussell"
+ZSH_THEME="spaceship"
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -98,10 +100,17 @@ if which pyenv-virtualenv-init > /dev/null; then eval "$(pyenv virtualenv-init -
 # Use hub instead of git
 eval "$(hub alias -s)"
 
+alias be='bundle exec '
+alias bss='browser-sync start --proxy app.local.dev:3000 --files "app/assets/stylesheets/*.scss, app/views/*.html.erb"'
+alias cbr=current-branch
+alias ffix='git commit --fixup `fcom`'
+alias fsquash='git commit --squash `fcom`'
+alias hr='heroku run -a $(testapp) '
+alias testapp='echo teldiod3test-pr-$(git-pull-request-number)'
+alias tm=tmux
 # Use nvim instead of vim
 alias vim=nvim
-alias tm=tmux
-alias be='bundle exec '
+alias vimst='vim `ffst`'
 
 # autojump init
 [ -f /usr/local/etc/profile.d/autojump.sh ] && . /usr/local/etc/profile.d/autojump.sh
@@ -114,8 +123,11 @@ export JAVA_HOME="/Library/Internet Plug-Ins/JavaAppletPlugin.plugin/Contents/Ho
 
 # Setting ag as the default source for fzf
 # export FZF_DEFAULT_COMMAND='ag --hidden --ignore .git -g ""'
-export FZF_DEFAULT_COMMAND='rg --hidden --ignore-file .git -g "" --files'
-export FZF_DEFAULT_OPTS='--height 40% --reverse'
+export FZF_DEFAULT_COMMAND='rg --hidden --no-ignore --ignore-file .git -g "" --files'
+# Enable this when it's released
+# export FZF_DEFAULT_OPTS='--height 40% --reverse --bind ctrl-u:unix-word-rubout+top'
+export FZF_DEFAULT_OPTS='--height 40% --reverse --bind ctrl-u:unix-line-discard+top --preview "cat {}"'
+# export FZF_DEFAULT_OPTS='--height 40% --reverse'
 
 # To apply the command to CTRL-T as well
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
