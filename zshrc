@@ -111,6 +111,7 @@ alias tm=tmux
 # Use nvim instead of vim
 alias vim=nvim
 alias vimst='vim `ffst`'
+alias grake='rake -f ~/bin/Rakefile'
 
 # autojump init
 [ -f /usr/local/etc/profile.d/autojump.sh ] && . /usr/local/etc/profile.d/autojump.sh
@@ -118,6 +119,9 @@ alias vimst='vim `ffst`'
 
 # Java setup?
 export JAVA_HOME="/Library/Internet Plug-Ins/JavaAppletPlugin.plugin/Contents/Home"
+
+# Yarn
+export PATH="$PATH:$(yarn global bin)"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
