@@ -1,9 +1,12 @@
 # If you come from bash you might have to change your $PATH.
 export PATH=$HOME/bin:/usr/local/bin:$PATH
 export PATH=$HOME/.mix/escripts:$PATH
+if [ -d $HOME/.local/bin ]; then
+  export PATH=$HOME/.local/bin:$PATH
+fi
 
 # Path to your oh-my-zsh installation.
-export ZSH=/Users/uri/.oh-my-zsh
+export ZSH=$HOME/.oh-my-zsh
 
 # Default editor
 export EDITOR=nvim
@@ -57,7 +60,7 @@ ZSH_THEME="spaceship"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git zsh-autosuggestions zsh-syntax-highlighting)
+plugins=(git zsh-autosuggestions zsh-syntax-highlighting zsh-autosuggestions)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -118,12 +121,25 @@ alias grake='rake -f ~/bin/Rakefile'
 
 
 # Java setup?
+# Mac specific
 export JAVA_HOME="/Library/Internet Plug-Ins/JavaAppletPlugin.plugin/Contents/Home"
 
 # Yarn
 export PATH="$PATH:$(yarn global bin)"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+[ -f /etc/profile.d/fzf.zsh ] && . /etc/profile.d/fzf.zsh
+
+#
 
 # Direnv
 eval "$(direnv hook zsh)"
+
+if command -v 'xclip' > /dev/null; then
+  alias pbcopy='xclip -sel c'
+  alias pbpaste='xclip -sel c -o'
+fi
+
+
+# Keybinds
+# zle -N ffst && bindkey ^T ffst
