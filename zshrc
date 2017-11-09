@@ -4,6 +4,9 @@ export PATH=$HOME/.mix/escripts:$PATH
 if [ -d $HOME/.local/bin ]; then
   export PATH=$HOME/.local/bin:$PATH
 fi
+if [ -d $HOME/.cargo/bin ]; then
+  export PATH=$HOME/.cargo/bin:$PATH
+fi
 
 # Path to your oh-my-zsh installation.
 export ZSH=$HOME/.oh-my-zsh
