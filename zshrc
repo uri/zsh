@@ -118,6 +118,7 @@ alias tm=tmux
 alias vim=nvim
 alias vimst='vim `ffst`'
 alias grake='rake -f ~/bin/Rakefile'
+alias cdc='source go_back'
 
 # autojump init
 [ -f /usr/local/etc/profile.d/autojump.sh ] && . /usr/local/etc/profile.d/autojump.sh
