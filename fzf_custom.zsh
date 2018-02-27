@@ -24,9 +24,16 @@ function ffst() {
 
 fcom() {
   git log --graph --color=always \
-      --format="%C(auto)%h%d %s %C(black)%C(bold)%cr" "$@" |
-  fzf --ansi --reverse --tiebreak=index --bind=ctrl-s:toggle-sort |
-  grep -o '[a-f0-9]\{7\}' | head -1
+      --format="%h%C(auto)%d %s %C(black)%C(bold)%cr" "$@" |
+  fzf --height 80% \
+      --ansi --reverse --tiebreak=index\
+      --bind=ctrl-d:preview-page-down \
+      --bind=ctrl-u:preview-page-up \
+      --bind=ctrl-e:preview-down \
+      --bind=ctrl-y:preview-up \
+      --bind=ctrl-s:toggle-sort \
+      --preview 'git show --color=always {2}' |
+    grep -o '[a-f0-9]\{8\}' #| head -1 | xargs
 }
 
 fzf-g-file-widget() {
