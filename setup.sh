@@ -7,3 +7,6 @@ for custom_file in $(ls -1 *.zsh); do
   ln -sf "$CURR_DIR/$custom_file" ~/.oh-my-zsh/custom/$custom_file
 done
 
+make spaceship.zsh-theme
+mv spaceship.zsh-theme ~/.oh-my-zsh/themes/
+
