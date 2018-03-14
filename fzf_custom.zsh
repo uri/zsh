@@ -19,7 +19,7 @@ function ffrm() {
 }
 
 function ffst() {
-  { git diff --cached --name-only & git ls-files  -dom --exclude-standard; } | sort -u | fzf -m --preview "cat {}"
+  { git diff --cached --name-only & git ls-files  -dom --exclude-standard; } | sort -u | fzf -m --preview "cat {}" --bind "btab:select-all"
 }
 
 fcom() {
@@ -45,3 +45,17 @@ fzf-g-file-widget() {
 }
 zle     -N   fzf-g-file-widget
 bindkey '^G' fzf-g-file-widget
+
+_fzf_complete_pass() {
+  _fzf_complete '+m' "$@" < <(
+  local pwdir=${PASSWORD_STORE_DIR-~/.password-store/}
+  cd $pwdir
+  rg -g '*.gpg' --files |
+  sed 's/\.gpg//'
+  )
+  # local stringsize="${#pwdir}"
+  # find "$pwdir" -name "*.gpg" -print |
+  #   cut -c "$((stringsize + 1))"-  |
+  #   sed -e 's/\(.*\)\.gpg/\1/'
+  # )
+}
