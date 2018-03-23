@@ -145,6 +145,11 @@ if command -v 'xclip' > /dev/null; then
   alias pbpaste='xclip -sel c -o'
 fi
 
+# Move stuff to trash
+function trash() {
+  mv $@ ~/.Trash
+}
+
 
 # Keybinds
 # zle -N ffst && bindkey ^T ffst
