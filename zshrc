@@ -17,10 +17,12 @@ export EDITOR=nvim
 export GPG_TTY=`tty`
 export ZSH_DISABLE_COMPFIX=false
 
+export RIPGREP_CONFIG_PATH=$HOME/.ripgreprc
+
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-ZSH_THEME="spaceship"
+# ZSH_THEME="spaceship"
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -153,3 +155,7 @@ function trash() {
 
 # Keybinds
 # zle -N ffst && bindkey ^T ffst
+
+# Set Spaceship ZSH as a prompt
+autoload -U promptinit; promptinit
+prompt spaceship

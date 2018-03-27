@@ -1,8 +1,8 @@
 SPACESHIP_PROMPT_ORDER=(
   time          # Time stampts section
+  dir           # Current directory section
   user          # Username section
   host          # Hostname section
-  dir           # Current directory section
   git           # Git section (git_branch + git_status)
   hg            # Mercurial section (hg_branch  + hg_status)
   # package       # Package version
@@ -23,11 +23,13 @@ SPACESHIP_PROMPT_ORDER=(
   # ember         # Ember.js section
   exec_time     # Execution time
   # line_sep      # Line break
+  battery
   vi_mode       # Vi-mode indicator
   jobs          # Backgound jobs indicator
   exit_code     # Exit code section
   char          # Prompt character
 )
 
-SPACESHIP_PROMPT_SYMBOL='λ'
+SPACESHIP_CHAR_SYMBOL='λ'
+SPACESHIP_CHAR_SUFFIX=' '
 SPACESHIP_JOBS_SYMBOL='☼'
