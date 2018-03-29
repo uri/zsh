@@ -120,7 +120,7 @@ alias tm=tmux
 # Use nvim instead of vim
 alias vim=nvim
 alias vimst='vim `ffst`'
-alias grake='rake -f ~/bin/Rakefile'
+alias grake='$HOME/.rbenv/shims/rake -f ~/bin/Rakefile'
 alias cdc='source go_back'
 
 # autojump init
