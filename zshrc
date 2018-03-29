@@ -159,3 +159,9 @@ function trash() {
 # Set Spaceship ZSH as a prompt
 autoload -U promptinit; promptinit
 prompt spaceship
+
+eval "$(fasd --init auto)"
+alias j='fasd_cd -d'
+alias jj='fasd_cd -d -i'
+alias v='f -e nvim' # quick opening files with vim
+alias o='a -e "open -n"' # quick opening files with vim
