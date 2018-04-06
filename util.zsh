@@ -1,4 +1,4 @@
 function pcg {
-  pass -c gpg/urigorelik
-  eval $@
+  pass -c gpg/urigorelik > /dev/null
+  eval "$@"
 }
