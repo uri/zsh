@@ -5,6 +5,6 @@ function tma () {
 
 function tms () {
   tmux new -d -s $1
-  tmux send-keys "j $1" C-m
+  tmux send-keys "j $1$" C-m
   tmux a -t $1
 }
