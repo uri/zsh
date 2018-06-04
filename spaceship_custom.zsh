@@ -5,16 +5,16 @@ SPACESHIP_DB_SUFFIX="${SPACESHIP_DB_SUFFIX=") "}"
 # SPACESHIP_DB_SYMBOL="${SPACESHIP_DB_SYMBOL="🍷 "}"
 
 function db() {
-  echo $D3_DEVELOPMENT_DATABASE
+  echo $DB_NAME
 }
 spaceship_db() {
-  [ -z "$D3_DEVELOPMENT_DATABASE" ] && return
+  [ -z "$DB_NAME" ] && return
   [[ $SPACESHIP_DB_SHOW == false ]] && return
-  local db_status="$D3_DEVELOPMENT_DATABASE"
+  local db_status="$DB_NAME"
   spaceship::section \
       "$SPACESHIP_DB_COLOR" \
       "$SPACESHIP_DB_PREFIX" \
-      "$D3_DEVELOPMENT_DATABASE" \
+      "$DB_NAME" \
       "$SPACESHIP_DB_SUFFIX"
 }
 
@@ -52,6 +52,7 @@ SPACESHIP_PROMPT_ORDER=(
 )
 
 # SPACESHIP_CHAR_SYMBOL='¥'
+# SPACESHIP_CHAR_SYMBOL='µ'
 SPACESHIP_CHAR_SYMBOL='λ'
 
 SPACESHIP_CHAR_SUFFIX=' '
