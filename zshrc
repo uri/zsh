@@ -123,6 +123,10 @@ alias vim=nvim
 alias vimst='vim `ffst`'
 alias grake='$HOME/.rbenv/shims/rake -f ~/bin/Rakefile'
 alias cdc='source go_back'
+alias j='fasd_cd -d'
+alias jj='fasd_cd -d -i'
+alias v='f -e nvim' # quick opening files with vim
+alias o='a -e "open -n"' # quick opening files with vim
 
 # autojump init
 [ -f /usr/local/etc/profile.d/autojump.sh ] && . /usr/local/etc/profile.d/autojump.sh
@@ -162,7 +166,6 @@ autoload -U promptinit; promptinit
 prompt spaceship
 
 eval "$(fasd --init auto)"
-alias j='fasd_cd -d'
-alias jj='fasd_cd -d -i'
-alias v='f -e nvim' # quick opening files with vim
-alias o='a -e "open -n"' # quick opening files with vim
+
+# Use bash style Ctrl-U
+bindkey \^U backward-kill-line
