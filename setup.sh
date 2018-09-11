@@ -8,4 +8,21 @@ for custom_file in $(ls -1 *.zsh); do
   ln -sf "$CURR_DIR/$custom_file" ~/.oh-my-zsh/custom/$custom_file
 done
 
-npm install -g spaceship-prompt
+# plugins
+
+function install_plugins() {
+  npm install -g spaceship-prompt
+
+  # autosuggestion
+  local auto_suggestion_path="${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions"
+  if [ ! -d $auto_suggestion_path ]
+  then
+    git clone https://github.com/zsh-users/zsh-autosuggestions \
+      $auto_suggestion_path
+  else
+    (cd $auto_suggestion_path &&
+      git pull origin master)
+  fi
+}
+
+install_plugins
