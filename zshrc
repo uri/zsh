@@ -128,6 +128,10 @@ alias jj='fasd_cd -d -i'
 alias v='f -e nvim' # quick opening files with vim
 alias o='a -e "open -n"' # quick opening files with vim
 
+if [ -e $HOME/bin/tw ]; then
+  alias task='tw'
+fi
+
 # autojump init
 [ -f /usr/local/etc/profile.d/autojump.sh ] && . /usr/local/etc/profile.d/autojump.sh
 
@@ -135,9 +139,6 @@ alias o='a -e "open -n"' # quick opening files with vim
 # Java setup?
 # Mac specific
 export JAVA_HOME="/Library/Internet Plug-Ins/JavaAppletPlugin.plugin/Contents/Home"
-
-# Yarn
-export PATH="$PATH:$(yarn global bin)"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 [ -f /etc/profile.d/fzf.zsh ] && . /etc/profile.d/fzf.zsh

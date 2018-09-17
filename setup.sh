@@ -3,6 +3,8 @@ CURR_DIR=`pwd`
 
 ln -sf "$CURR_DIR/zshrc" ~/.zshrc
 ln -sf "$CURR_DIR/ripgreprc" ~/.ripgreprc
+ln -sf "$CURR_DIR/task-git-sync" ~/bin/
+ln -sf "$CURR_DIR/tw" ~/bin/
 
 for custom_file in $(ls -1 *.zsh); do
   ln -sf "$CURR_DIR/$custom_file" ~/.oh-my-zsh/custom/$custom_file

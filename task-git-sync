@@ -1,0 +1,6 @@
+#!/bin/bash
+(cd $HOME/.task  && \
+  git pull --rebase 2>&1 > /dev/null ; \
+  git add . && \
+  git commit -m "Sync `date`" && \
+  git push origin master 2>&1 > /dev/null) 2>&1 > /dev/null # && echo "Task sync complete"
