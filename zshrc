@@ -1,5 +1,4 @@
 # If you come from bash you might have to change your $PATH.
-export PATH=$HOME/bin:/usr/local/bin:$PATH
 export PATH=$HOME/.mix/escripts:$PATH
 export PATH=$HOME/Library/Python/3.6/bin:$PATH
 if [ -d $HOME/.local/bin ]; then
@@ -8,7 +7,7 @@ fi
 if [ -d $HOME/.cargo/bin ]; then
   export PATH=$HOME/.cargo/bin:$PATH
 fi
-
+export PATH=$HOME/bin:/usr/local/bin:$PATH
 # Path to your oh-my-zsh installation.
 export ZSH=$HOME/.oh-my-zsh
 
@@ -101,7 +100,7 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 # Load rbenv
-eval "$(rbenv init -)"
+# eval "$(rbenv init -)"
 
 # Load pyenv
 eval "$(pyenv init -)"
@@ -121,7 +120,7 @@ alias tm=tmux
 # Use nvim instead of vim
 alias vim=nvim
 alias vimst='vim `ffst`'
-alias grake='$HOME/.rbenv/shims/rake -f ~/bin/Rakefile'
+alias grake='$HOME/.asdf/shims/rake -f ~/bin/Rakefile'
 alias cdc='source go_back'
 alias j='fasd_cd -d'
 alias jj='fasd_cd -d -i'
@@ -170,3 +169,8 @@ eval "$(fasd --init auto)"
 
 # Use bash style Ctrl-U
 bindkey \^U backward-kill-line
+
+test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+
+. $HOME/.asdf/asdf.sh
+. $HOME/.asdf/completions/asdf.bash
