@@ -1,5 +1,6 @@
 SPACESHIP_DB_COLOR="${SPACESHIP_DB_COLOR="black"}"
 SPACESHIP_DB_SHOW="${SPACESHIP_DB_SHOW=true}"
+SPACESHIP_PROXY_HOST_SHOW="${SPACESHIP_PROXY_HOST_SHOW=true}"
 SPACESHIP_DB_PREFIX="${SPACESHIP_DB_PREFIX="("}"
 SPACESHIP_DB_SUFFIX="${SPACESHIP_DB_SUFFIX=") "}"
 # SPACESHIP_DB_SYMBOL="${SPACESHIP_DB_SYMBOL="🍷 "}"
@@ -18,12 +19,24 @@ spaceship_db() {
       "$SPACESHIP_DB_SUFFIX"
 }
 
+spaceship_proxy_host() {
+  [ -z "$PROXY_HOST" ] && return
+  [[ $SPACESHIP_DB_SHOW == false ]] && return
+  local db_status="$PROXY_HOST"
+  spaceship::section \
+      "$SPACESHIP_DB_COLOR" \
+      "$SPACESHIP_DB_PREFIX" \
+      "$PROXY_HOST" \
+      "$SPACESHIP_DB_SUFFIX"
+}
+
 SPACESHIP_PROMPT_ORDER=(
   time          # Time stampts section
   dir           # Current directory section
   user          # Username section
   host          # Hostname section
   db
+  proxy_host
   git           # Git section (git_branch + git_status)
   hg            # Mercurial section (hg_branch  + hg_status)
   # package       # Package version

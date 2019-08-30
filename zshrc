@@ -22,7 +22,7 @@ export RIPGREP_CONFIG_PATH=$HOME/.ripgreprc
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-# ZSH_THEME="spaceship"
+ZSH_THEME="spaceship"
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -102,10 +102,6 @@ source $ZSH/oh-my-zsh.sh
 # Load rbenv
 # eval "$(rbenv init -)"
 
-# Load pyenv
-eval "$(pyenv init -)"
-if which pyenv-virtualenv-init > /dev/null; then eval "$(pyenv virtualenv-init -)"; fi
-
 # Use hub instead of git
 eval "$(hub alias -s)"
 
@@ -119,6 +115,7 @@ alias testapp='echo teldiod3test-pr-$(git-pull-request-number)'
 alias tm=tmux
 # Use nvim instead of vim
 alias vim=nvim
+alias man='man -P viewman'
 alias vimst='vim `ffst`'
 alias grake='$HOME/.asdf/shims/rake -f ~/bin/Rakefile'
 alias cdc='source go_back'
@@ -162,8 +159,8 @@ function trash() {
 # zle -N ffst && bindkey ^T ffst
 
 # Set Spaceship ZSH as a prompt
-autoload -U promptinit; promptinit
-prompt spaceship
+# autoload -U promptinit; promptinit
+# prompt spaceship
 
 eval "$(fasd --init auto)"
 
