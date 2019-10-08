@@ -1,6 +1,6 @@
 # Setting ag as the default source for fzf
 # export FZF_DEFAULT_COMMAND='ag --hidden --ignore .git -g ""'
-export FZF_DEFAULT_COMMAND='rg --hidden --no-ignore-vcs -g "" --files'
+export FZF_DEFAULT_COMMAND='rg -L --hidden --no-ignore-vcs -g "" --files 2> /dev/null'
 # Enable this when it's released
 # export FZF_DEFAULT_OPTS='--height 40% --reverse --bind ctrl-u:unix-word-rubout+top'
 export FZF_DEFAULT_OPTS='--height 40% --reverse --bind ctrl-u:unix-line-discard+top'
