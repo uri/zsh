@@ -1,5 +1,6 @@
 # If you come from bash you might have to change your $PATH.
 export PATH=$HOME/.mix/escripts:$PATH
+export PATH=$HOME/dev/go/bin:$PATH
 export PATH=$HOME/Library/Python/3.6/bin:$PATH
 if [ -d $HOME/.local/bin ]; then
   export PATH=$HOME/.local/bin:$PATH
@@ -10,6 +11,7 @@ fi
 export PATH=$HOME/bin:/usr/local/bin:$PATH
 # Path to your oh-my-zsh installation.
 export ZSH=$HOME/.oh-my-zsh
+export GOPATH=$HOME/dev/go
 
 # Default editor
 export EDITOR=nvim
@@ -123,6 +125,7 @@ alias j='fasd_cd -d'
 alias jj='fasd_cd -d -i'
 alias v='f -e nvim' # quick opening files with vim
 alias o='a -e "open -n"' # quick opening files with vim
+alias gs='git commit -v -S'
 
 if [ -e $HOME/bin/tw ]; then
   alias task='tw'
