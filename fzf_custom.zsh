@@ -33,7 +33,7 @@ fcom() {
       --bind=ctrl-y:preview-up \
       --bind=ctrl-s:toggle-sort \
       --preview 'git show --color=always {2}' |
-    grep -o '[a-f0-9]\{8\}' #| head -1 | xargs
+    grep -o '[a-f0-9]\{7,8\}' #| head -1 | xargs
 }
 
 fzf-g-file-widget() {

@@ -117,6 +117,7 @@ alias testapp='echo teldiod3test-pr-$(git-pull-request-number)'
 alias tm=tmux
 # Use nvim instead of vim
 alias vim=nvim
+alias vi='nvim -u NONE'
 alias man='man -P viewman'
 alias vimst='vim `ffst`'
 alias grake='$HOME/.asdf/shims/rake -f ~/bin/Rakefile'
@@ -151,11 +152,6 @@ if command -v 'xclip' > /dev/null; then
   alias pbcopy='xclip -sel c'
   alias pbpaste='xclip -sel c -o'
 fi
-
-# Move stuff to trash
-function trash() {
-  mv $@ ~/.Trash
-}
 
 
 # Keybinds
