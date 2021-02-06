@@ -1,9 +1,16 @@
-SPACESHIP_DB_COLOR="${SPACESHIP_DB_COLOR="black"}"
+SPACESHIP_DB_COLOR="${SPACESHIP_DB_COLOR="green"}"
 SPACESHIP_DB_SHOW="${SPACESHIP_DB_SHOW=true}"
 SPACESHIP_PROXY_HOST_SHOW="${SPACESHIP_PROXY_HOST_SHOW=true}"
 SPACESHIP_DB_PREFIX="${SPACESHIP_DB_PREFIX="("}"
 SPACESHIP_DB_SUFFIX="${SPACESHIP_DB_SUFFIX=") "}"
 # SPACESHIP_DB_SYMBOL="${SPACESHIP_DB_SYMBOL="🍷 "}"
+
+# SPACESHIP_CHAR_SYMBOL='¥'
+# SPACESHIP_CHAR_SYMBOL='µ'
+SPACESHIP_CHAR_SYMBOL='λ'
+
+SPACESHIP_CHAR_SUFFIX=' '
+SPACESHIP_JOBS_SYMBOL='☼'
 
 function db() {
   echo $DB_NAME
@@ -57,16 +64,9 @@ SPACESHIP_PROMPT_ORDER=(
   # ember         # Ember.js section
   exec_time     # Execution time
   # line_sep      # Line break
-  battery
+  # battery
   vi_mode       # Vi-mode indicator
   jobs          # Backgound jobs indicator
   exit_code     # Exit code section
   char          # Prompt character
 )
-
-# SPACESHIP_CHAR_SYMBOL='¥'
-# SPACESHIP_CHAR_SYMBOL='µ'
-SPACESHIP_CHAR_SYMBOL='λ'
-
-SPACESHIP_CHAR_SUFFIX=' '
-SPACESHIP_JOBS_SYMBOL='☼'

@@ -1,6 +1,5 @@
 # If you come from bash you might have to change your $PATH.
 export PATH=$HOME/.mix/escripts:$PATH
-export PATH=$HOME/dev/go/bin:$PATH
 export PATH=$HOME/Library/Python/3.6/bin:$PATH
 if [ -d $HOME/.local/bin ]; then
   export PATH=$HOME/.local/bin:$PATH
@@ -9,9 +8,16 @@ if [ -d $HOME/.cargo/bin ]; then
   export PATH=$HOME/.cargo/bin:$PATH
 fi
 export PATH=$HOME/bin:/usr/local/bin:$PATH
+export PATH="/usr/local/sbin:$PATH"
 # Path to your oh-my-zsh installation.
 export ZSH=$HOME/.oh-my-zsh
+export ASDFROOT=$HOME/.asdf
+export ASDFINSTALLS=$HOME/.asdf/installs
+GOV=$(asdf current golang | rg -o '1\.\d+\.\d+')
+export GOROOT=$ASDFINSTALLS/golang/$GOV/go
 export GOPATH=$HOME/dev/go
+export PATH=$GOROOT/bin:$PATH
+export PATH=$HOME/dev/go/bin:$PATH
 
 # Default editor
 export EDITOR=nvim
@@ -166,7 +172,7 @@ eval "$(fasd --init auto)"
 # Use bash style Ctrl-U
 bindkey \^U backward-kill-line
 
-test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+. $(brew --prefix asdf)/asdf.sh
 
-. $HOME/.asdf/asdf.sh
-. $HOME/.asdf/completions/asdf.bash
+# heroku autocomplete setup
+# HEROKU_AC_ZSH_SETUP_PATH=/Users/uri/Library/Caches/heroku/autocomplete/zsh_setup && test -f $HEROKU_AC_ZSH_SETUP_PATH && source $HEROKU_AC_ZSH_SETUP_PATH;
