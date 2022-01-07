@@ -63,7 +63,7 @@ SPACESHIP_PROMPT_ORDER=(
   # dotnet        # .NET section
   # ember         # Ember.js section
   exec_time     # Execution time
-  # line_sep      # Line break
+  line_sep      # Line break
   # battery
   vi_mode       # Vi-mode indicator
   jobs          # Backgound jobs indicator

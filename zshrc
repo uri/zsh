@@ -11,13 +11,6 @@ export PATH=$HOME/bin:/usr/local/bin:$PATH
 export PATH="/usr/local/sbin:$PATH"
 # Path to your oh-my-zsh installation.
 export ZSH=$HOME/.oh-my-zsh
-export ASDFROOT=$HOME/.asdf
-export ASDFINSTALLS=$HOME/.asdf/installs
-GOV=$(asdf current golang | rg -o '1\.\d+\.\d+')
-export GOROOT=$ASDFINSTALLS/golang/$GOV/go
-export GOPATH=$HOME/dev/go
-export PATH=$GOROOT/bin:$PATH
-export PATH=$HOME/dev/go/bin:$PATH
 
 # Default editor
 export EDITOR=nvim
@@ -174,5 +167,17 @@ bindkey \^U backward-kill-line
 
 . $(brew --prefix asdf)/asdf.sh
 
+export ASDFROOT=$HOME/.asdf
+export ASDFINSTALLS=$HOME/.asdf/installs
+GOV=$(asdf current golang | awk '{print $2}')
+export GOROOT=$ASDFINSTALLS/golang/$GOV/go
+export GOPATH=$HOME/dev/go
+export PATH=$GOROOT/bin:$PATH
+export PATH=$HOME/dev/go/bin:$PATH
+
 # heroku autocomplete setup
 # HEROKU_AC_ZSH_SETUP_PATH=/Users/uri/Library/Caches/heroku/autocomplete/zsh_setup && test -f $HEROKU_AC_ZSH_SETUP_PATH && source $HEROKU_AC_ZSH_SETUP_PATH;
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
