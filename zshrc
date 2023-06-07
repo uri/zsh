@@ -7,10 +7,16 @@ fi
 if [ -d $HOME/.cargo/bin ]; then
   export PATH=$HOME/.cargo/bin:$PATH
 fi
+
 export PATH=$HOME/bin:/usr/local/bin:$PATH
 export PATH="/usr/local/sbin:$PATH"
 # Path to your oh-my-zsh installation.
 export ZSH=$HOME/.oh-my-zsh
+
+asdf_go=$(asdf where golang)
+# export GOPATH=$asdf_go/go
+export GOBIN=$asdf_go/go/bin
+export PATH=$GOBIN:$PATH
 
 # Default editor
 export EDITOR=nvim
@@ -166,6 +172,7 @@ eval "$(fasd --init auto)"
 bindkey \^U backward-kill-line
 
 . $(brew --prefix asdf)/asdf.sh
+. $HOME/.asdf/completions/asdf.bash
 
 export ASDFROOT=$HOME/.asdf
 export ASDFINSTALLS=$HOME/.asdf/installs
