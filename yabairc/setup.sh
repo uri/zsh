@@ -2,11 +2,8 @@
 ln -fs `pwd`/yabairc $HOME/.yabairc
 ln -fs `pwd`/skhdrc $HOME/.skhdrc
 
-brew tap koekeishiya/formulae
+# brew tap koekeishiya/formulae
 
-brew install skhd
-brew install --HEAD yabai
-
-brew services start skhd
-brew services start yabai
-
+# brew install jq
+# brew install skhd
+# brew install yabai

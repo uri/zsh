@@ -4,8 +4,8 @@ alt - j : yabai -m window --focus south
 alt - k : yabai -m window --focus north
 # alt - l : yabai -m window --focus east
 
-alt - h : yabai -m window --focus west || yabai -m display --focus "$(yabai -m query --spaces | jq -re '.[] | select(.focused == 1).display' | xargs -I{} /Users/uri/dev/go/bin/yabaimove west {})"
-alt - l : yabai -m window --focus east || yabai -m display --focus "$(yabai -m query --spaces | jq -re '.[] | select(.focused == 1).display' | xargs -I{} /Users/uri/dev/go/bin/yabaimove east {})"
+alt - h : yabai -m window --focus west || yabai -m display --focus $(yabai -m query --spaces | jq -re '.[] | select(.["has-focus"]).display' | xargs -I{} /Users/uri/bin/yabaimove west {})
+alt - l : yabai -m window --focus east || yabai -m display --focus $(yabai -m query --spaces | jq -re '.[] | select(.["has-focus"]).display' | xargs -I{} /Users/uri/bin/yabaimove east {})
 
 # swap window
 shift + ctrl - h : yabai -m window --swap west
