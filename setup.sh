@@ -8,6 +8,7 @@ ln -sf "$CURR_DIR/ripgreprc" ~/.ripgreprc
 ln -sf "$CURR_DIR/fzf_custom.zsh" ~/.fzf_custom.zsh
 ln -sf "$CURR_DIR/task-git-sync" ~/bin/
 ln -sf "$CURR_DIR/tw" ~/bin/
+ln -sf "$CURR_DIR/secrets.ejson" ~/.secrets.ejson
 
 for custom_file in $(ls -1 *.zsh); do
   ln -sf "$CURR_DIR/$custom_file" "$ZSH_CUSTOM/$custom_file"

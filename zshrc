@@ -14,9 +14,11 @@ bindkey -e
 # Use bash style Ctrl-U
 bindkey \^U backward-kill-line
 
+autoload -U edit-command-line
+zle -N edit-command-line
+bindkey '^X^e' edit-command-line
 # Keybinds
 # zle -N ffst && bindkey ^T ffst
-# bindkey -e
 
 zstyle ':compinstall filename' '~/.zshrc'
 zstyle ':completion:*:killall:*' command 'ps -u $USER -o cmd'
@@ -27,6 +29,9 @@ zstyle ':completion:*:killall:*' command 'ps -u $USER -o cmd'
 # |                                                                            |
 # =----------------------------------------------------------------------------=
 #
+# ZSH Custom
+ZSH_CUSTOM="$HOME/.zsh-custom"
+
 if [ -d $HOME/.local/bin ]; then
   export PATH=$HOME/.local/bin:$PATH
 fi
@@ -34,11 +39,12 @@ fi
 export PATH=$HOME/bin:/usr/local/bin:$PATH
 export PATH="/usr/local/sbin:$PATH"
 
-asdf_go=$(asdf where golang)/go
-# export GOPATH=$asdf_go/go
-export GOPATH=$asdf_go
-export GOBIN=$asdf_go/bin
-export PATH=$GOBIN:$PATH
+# go
+export GOPATH=/Users/uri/src/go
+export PATH=$GOPATH/bin:$PATH
+export PATH=$(go env GOROOT)/bin:$PATH
+# ejson
+export EJSON_KEYDIR=$HOME/opt/ejson/keys
 
 # Path to your oh-my-zsh installation.
 
@@ -108,15 +114,17 @@ eval "$(fasd --init auto)"
 # Spaceship
 source /usr/local/opt/spaceship/spaceship.zsh
 
+
 # =----------------------------------------------------------------------------=
 # |                                                                            |
 # |                                Custom Tweaks                               |
 # |                                                                            |
 # =----------------------------------------------------------------------------=
 #
-# ZSH Custom
-ZSH_CUSTOM="$HOME/.zsh-custom"
 source <(cat $ZSH_CUSTOM/*.zsh)
 
 #tmp
 # source ~/dev/dotfiles/zsh/spaceship_custom.zsh
+
+test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+
