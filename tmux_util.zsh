@@ -1,6 +1,6 @@
-
 function tma () {
-  tmux attach -t $(tmux ls | sed -E 's/^([a-z0-9_\s]+):.*/\1/' | fzf)
+	sesh=$(tmux ls | sed -E 's/([^:]*):.*$/\1/' | fzf)
+  [[ -n $sesh ]] && tmux attach -t $sesh
 }
 
 function tms () {

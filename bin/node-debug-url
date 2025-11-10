@@ -1,0 +1,14 @@
+#!/bin/sh
+
+set -em
+
+"$@" &
+sleep 1
+devtoolsurl=$(curl -s http://127.0.0.1:9229/json/list | jq -r '.[0].devtoolsFrontendUrl')
+# pbcopy <<< $devtoolsurl
+# echo "devtoolsurl copied to clipboard: $devtoolsurl"
+# open -na "Arc" --args --new-window
+# sleep 1
+open -a 'Google Chrome' "$devtoolsurl"
+# open -a "Arc" "$devtoolsurl"
+fg

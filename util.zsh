@@ -9,3 +9,8 @@ function current-branch() {
 }
 alias gcb=current-branch
 
+
+function date_calc() {
+  local query=$(ruby -e 'puts "select datetime(" + ARGV.map{ |s| "'\''#{s}'\''"}.join(",") + ");"' "$@")
+  sqlite3 '' "$query"
+}

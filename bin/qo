@@ -1,0 +1,10 @@
+#!/bin/sh
+
+# requires a ~/data/quick_open.yaml
+# ---
+# urls:
+#   - name: hello
+#     short: g
+#     url: https://google.com
+
+open $(yq '.urls[] | "\(.name)  \(.url)"' ~/data/quick_open.yaml | fzf --delimiter='[\s]{2}' --with-nth=1 | awk -F '  ' '{print $2}')

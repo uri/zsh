@@ -3,15 +3,24 @@ CURR_DIR=`pwd`
 ZSH_CUSTOM="$HOME/.zsh-custom"
 mkdir -p $ZSH_CUSTOM
 
+BIND_DIR="$HOME"/bin
+mkdir -p $BIND_DIR
+
+ln -sf "$CURR_DIR/zshenv" ~/.zshenv
 ln -sf "$CURR_DIR/zshrc" ~/.zshrc
 ln -sf "$CURR_DIR/ripgreprc" ~/.ripgreprc
 ln -sf "$CURR_DIR/fzf_custom.zsh" ~/.fzf_custom.zsh
 ln -sf "$CURR_DIR/task-git-sync" ~/bin/
-ln -sf "$CURR_DIR/tw" ~/bin/
+# ln -sf "$CURR_DIR/tw" ~/bin/
 ln -sf "$CURR_DIR/secrets.ejson" ~/.secrets.ejson
+ln -sf "$CURR_DIR/data" ~/data
 
 for custom_file in $(ls -1 *.zsh); do
   ln -sf "$CURR_DIR/$custom_file" "$ZSH_CUSTOM/$custom_file"
+done
+
+for b in $(ls -1 bin/); do
+  ln -sf "$CURR_DIR/bin/$b" "$BIND_DIR/$b"
 done
 
 # plugins
@@ -33,4 +42,4 @@ function install_plugins() {
   fi
 }
 
-install_plugins
+# install_plugins

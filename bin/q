@@ -1,0 +1,67 @@
+#!/usr/bin/env ruby
+
+require 'yaml'
+require 'json'
+require 'date'
+
+### Load
+#
+#
+
+DB_PATH = File.expand_path('~/data/q.yaml')
+SECRETS_PATH = File.expand_path('~/data/secrets.yaml.age')
+
+if ARGV.length == 0
+  puts `yq -C . #{DB_PATH}`
+    exit
+end
+
+db = YAML.load_file(File.expand_path(DB_PATH))
+key = ARGV[0].split('.')
+val = db.dig(*key)
+
+
+# Custom functions
+#
+#
+
+def current_logseq_journal
+  d = DateTime.now
+  date_str = d.strftime("%Y_%m_%d")
+
+  journal_path = "~/Sync/logseq/journals/#{date_str}.md"
+  system "$EDITOR #{journal_path}"
+  exit
+end
+
+def edit_file file 
+  system "$EDITOR \"#{file}\""
+  exit
+end
+
+def secrets
+  system "age -i ~/.age.key -d #{SECRETS_PATH}"
+  exit
+end
+
+### Main
+#
+#
+
+
+
+case 
+when key.first == 'edit'
+  system "$EDITOR #{DB_PATH}"
+  exit
+when val == nil 
+  puts "No key matches #{key}"
+when val[0..3] == 'fn::'
+  args = val.split('::')
+  args.shift # drop the fn::
+  puts send(*args)
+else
+  system "echo '#{val.to_json}' | jq -r ."
+  # puts val.to_json
+end
+
